@@ -13,7 +13,10 @@ var myApp = angular.module("myModule", [])
                 { name: "Todd", gender: 3, salary: 60000, city: "London" },
             ];
 $scope.employees = employees;
-$scope.hideSalary = false; //by defailt setting to false, not checked
+
+
+$scope.employeesFile = 'employees.html';
+
  }]);
 
 // ng-include directive is used to embed an HTML page into another HTML page. This technique is extremely useful when you want to reuse a specific view in multiple pages in your application. 

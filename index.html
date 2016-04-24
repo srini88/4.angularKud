@@ -11,9 +11,10 @@
 
 Loading from employees.html file
 
-<div ng-controller="myController">  <!-- //controller is important...otherwise employees.html wont have any context..does not know from which controller it should bring in the data. -->
+<div ng-controller="myController">  
 
-<div ng-include="'employees.html'" scope="" onload=""></div>
+{{employeesFile}}   <!-- //prints employees.html -->
+<div ng-include="employeesFile" scope="" onload=""></div>
 
 </div>
 </div>
