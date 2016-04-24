@@ -21,7 +21,7 @@ HideSalary value :
                     <th>Name</th>
                     <th>NAME</th>
                     <th>Gender</th>
-                    <th ng-hide="hideSalary">Salary</th>
+                    <th>Salary</th>
                     <th>City</th>
                 </tr>
             </thead>
@@ -30,7 +30,10 @@ HideSalary value :
                     <td> {{ employee.name }} </td>
                     <td> {{ employee.name | toUpper }} </td>
                     <td> {{ employee.gender | gend}} </td> 
-                    <td ng-show="!hideSalary"> {{ employee.salary  }} </td>
+                   <!--  <td> {{ employee.salary | cross }} </td> -->
+                   <td> {{hideSalary ? (employee.salary | cross): employee.salary}} </td> 
+
+
                     <td> {{ employee.city  }} </td>
                 </tr>
             </tbody>

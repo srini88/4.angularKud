@@ -16,5 +16,13 @@ myApp.filter("toUpper" , function(){
 	}
 });
 
+myApp.filter("cross", function(){  //when hide salary is checked, it wil be crossed out
+	return function(salary, opt){
+		return "xxx";
+	}
+
+
+});
+
 
 
