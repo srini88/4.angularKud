@@ -9,21 +9,28 @@
 
 <div ng-controller="myController">
 
+Rows to display:
+<input type="number" step="1" ng-model="rowCount" max="5" min="0" />
+<!-- with nothing in the input box, all employees are being printed.. -->
+
+<br/>
+<br/>
 <table>
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Date of Birth</th>
                     <th>Gender</th>
-                    <th>Salary (number filter)</th>
-                    <th>Salary (currency filter)</th>
+                    <th>Salary (number)</th>
+                    <th>Salary (currency)</th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="employee in employees | limitTo:rowCount+2">
+<!--             the 2dn one in limitTo filter is the begin with --- we will start at array index 2 below..will skip the first 2 -->
+                <tr ng-repeat="employee in employees | limitTo:rowCount:2">
                     <td> {{ employee.name | uppercase }} </td>
-                    <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
-                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.dateOfBirth | date:"yyyy" }} </td>
+                    <td> {{ employee.gender |lowercase}} </td>
                     <td> {{ employee.salary | number:1}} </td>  
                     <td> {{ employee.salary | currency : "$" : 2 }} </td>
                 </tr>
