@@ -8,16 +8,23 @@
 <body>
 
 <div ng-controller="myController">
-	{{employee}} <!--  prints {"firstName":"Srini","lastName":"vas","gender":"LGBT"}  -->
-	<br/>
-	{{employee.firstName}}
-	<br/>
-	{{employee.lastName}}
-	<br/>
-	{{employee.gender}}
-	<br/>
-	{{employee['firstName']}}   <!-- this works too Srini -->
-	<br/>
+
+<!-- //hard coded src attribute....instead use binding expression in angular -->
+	<!-- <img src="img.png" style="height: 300px; width: 400px"> -->
+
+Name : {{country.name}}
+
+
+<img ng-src="{{country.flag}}" alt="flag of USA" title="USA Flag">
+
+
+<!-- //since I;'m using src instead of ng-Src I would see the below message in console'
+http://localhost/rejuvenate/4.angularKud/%7B%7Bcountry.flag%7D%7D 404 (Not Found) -->
+
+
+
+
+<br/>
 </div>
 </body>
 </html>
