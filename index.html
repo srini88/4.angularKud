@@ -9,9 +9,20 @@
 
 <div ng-controller="myController">
 
-Rows to display:
-<input type="number" step="1" ng-model="rowCount" max="5" min="0" />
-<!-- with nothing in the input box, all employees are being printed.. -->
+Sort By: 
+
+ <select ng-model = sortColumn>   <!--ng model this is imp to pick the value from the options...... -->
+	<option value="+name">Name ASC</option>
+	<option value="-name">Name DESC</option>
+	<option value="-salary">Salary DESC</option>
+	<option value="+salary">Salary ASC</option>
+	<option value="+dateOfBirth">DOB ASC</option>
+	<option value="-dateOfBirth">DOB DESC</option>
+
+</select>
+
+{{sortColumn}}   <!-- //this changes as per your select options, which wikll be used the orderBy in ng-repeat
+ -->
 
 <br/>
 <br/>
@@ -27,7 +38,7 @@ Rows to display:
             </thead>
             <tbody>
 <!--             the 2dn one in limitTo filter is the begin with --- we will start at array index 2 below..will skip the first 2 -->
-                <tr ng-repeat="employee in employees | limitTo:rowCount:2">
+                <tr ng-repeat="employee in employees | orderBy : sortColumn">
                     <td> {{ employee.name | uppercase }} </td>
                     <td> {{ employee.dateOfBirth | date:"yyyy" }} </td>
                     <td> {{ employee.gender |lowercase}} </td>

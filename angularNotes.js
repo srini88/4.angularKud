@@ -106,3 +106,48 @@ employee in employees | limitTo: rowCount
 
 <input type="number"  will use step as attribute --- that will give the up and down arrows   - this is html5 element  == step is to how much to increment on a clikc 
 <input type="number" step="0.5" ng-model="rowCount" max="5" min="0" />
+
+
+
+To sort the data in Angular
+1. Use orderBy filter
+    {{ orderBy_expression | orderBy : expression : reverse}}
+    Example : ng-repeat="employee in employees | orderBy:'salary':false"
+2. To sort in ascending order, set reverse to false
+3. To sort in descending order, set reverse to true
+4. You can also use + and - to sort in ascending and descending order respectively
+     Example : ng-repeat="employee in employees | orderBy:'+salary'"
+
+
+orderBy bit weird...got to use '' and use just name prop in object...instead of object.prop
+
+<tr ng-repeat="employee in employees | orderBy : 'employee.name'">
+                    <td> {{ employee.name | uppercase }} </td>  this is wrong
+
+<tr ng-repeat="employee in employees | orderBy : 'name'">  this is correct
+                    <td> {{ employee.name | uppercase }} </td> 
+
+
+
+orderBy : '-name'  desc
+orderBy : '+name'  asc
+
+
+ng-repeat="employee in employees | orderBy:'salary':false"   - this is ascending with false, with true it is descending ...
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

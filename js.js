@@ -26,7 +26,7 @@ var myApp = angular.module("myModule", [])
                 }
             ];
             $scope.employees = employees;
-            $scope.rowCount = 2;
+            $scope.sortColumn = '+name';   //important using quotations
             //console.log(employees);
 
  }]);
