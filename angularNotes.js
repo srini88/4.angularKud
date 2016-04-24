@@ -137,6 +137,16 @@ ng-repeat="employee in employees | orderBy:'salary':false"   - this is ascending
 
 
 
+In this video we will discuss how to implement bidirectional sort in Angular JS. 
+
+
+
+Here is what we want to do
+1. The data should be sorted when the table column header is clicked
+2. The user should be able to sort in both the directions - ascending and descending. Clicking on the column for the first time should sort the data in ascending order. Clicking on the same column again should sort in descending order.
+3. An icon should be displayed next to the column showing the sort column and direction 
+
+
 
 
 

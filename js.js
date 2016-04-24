@@ -26,8 +26,30 @@ var myApp = angular.module("myModule", [])
                 }
             ];
             $scope.employees = employees;
-            $scope.sortColumn = '+name';   //important using quotations
-            //console.log(employees);
+            $scope.sortColumn = "+name";
+            $scope.reverseSort = false;
+
+            $scope.sortData = function (column) {
+                $scope.reverseSort = ($scope.sortColumn == column) ?
+                    !$scope.reverseSort : false;
+                $scope.sortColumn = column;
+            }
+
+            $scope.getSortClass = function (column) {
+
+                if ($scope.sortColumn == column) {
+                    return $scope.reverseSort
+                      ? 'arrow-down'
+                      : 'arrow-up';
+                }
+
+                return '';
+            }
 
  }]);
 
+// Sets up the model 
+// sortColumn and reverseSort properties are attached to the $scope object. These 2 properties are used to control the column by which the data should be sorted and the sort direction.
+// sortColumn is set to name and reverseSort is set to false. This will ensure that when the form is initially loaded, the table data will be sorted by name column in ascending order.
+// Depending on the column header the user has clicked, sortData() function sets the sortColumn and reverseSort property values. 
+// Based on the sort column and the sort direction, getSortClass() function returns the CSS class name to return. The CSS class controls the sort icon that will be displayed next to the sort column.
