@@ -102,3 +102,7 @@ employee in employees | limitTo: rowCount
                     <td> {{ employee.gender }} </td>
                     <td> {{ employee.salary | number:1}} </td>   one decimal
                     <td> {{ employee.salary | currency : "£" : 2 }} two decimal 
+
+
+<input type="number"  will use step as attribute --- that will give the up and down arrows   - this is html5 element  == step is to how much to increment on a clikc 
+<input type="number" step="0.5" ng-model="rowCount" max="5" min="0" />

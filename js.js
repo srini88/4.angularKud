@@ -26,7 +26,7 @@ var myApp = angular.module("myModule", [])
                 }
             ];
             $scope.employees = employees;
-            $scope.rowCount = 3;
+            $scope.rowCount = 2;
             //console.log(employees);
 
  }]);
