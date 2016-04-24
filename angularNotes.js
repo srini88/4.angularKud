@@ -46,3 +46,10 @@ binding expression updates the view when the model changes...{{message}}
 if you want reverse shit -- use ng-model - by means of a text box...
 
 means no need to write any code whatsoever to move the form values into our model shit.... awesome advantage...
+
+
+ng-repeat - same as foreach loop ....
+
+using repeat in tr and td
+
+<tr ng-repeat = "employee in employees">

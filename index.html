@@ -9,52 +9,33 @@
 
 <div ng-controller="myController">
 
-<table>
-	
-<tr>
+<!-- {{employees}}  //prints everything -->
 
-<td> FIRST NAME</td>
-<td>
-	<input type="text" ng-model = "employee.name"></input>
-</td>
+ <table>
+            <thead>
+                <tr>
+                    <th>Firstname</th>
+                    <th>Lastname</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                </tr>
+            </thead>
+            <tbody>
+                
 
-</tr>
+            <tr ng-repeat = "employee in employees">
+            <!-- //will print all trhoguh loop-->
+            	
+            	<th> {{employee.firstName}}</th>
+            	<th> {{employee.lastName}}</th>
+            	<th> {{employee.gender}}</th>
+            	<th> {{employee.salary}}</th>
 
-<tr>
-	
-	<td>
-	<input type="text" ng-model = "employee.gender"></input>
-</td>
-
-
-
-</tr>
-
-
-
-</table>
-<table>
-            <tr>
-                <td>
-                    Name
-                </td>
-                <td>
-                    {{ employee.name }}
-                </td>
             </tr>
-            
-            <tr>
-                <td>
-                    Gender
-                </td>
-                <td>
-                    {{ employee.gender }}
-                </td>
-            </tr>
+
+
+            </tbody>
         </table>
-
-
-
 
 </div>
 </body>
