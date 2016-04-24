@@ -2,10 +2,11 @@
 
 var myApp = angular.module("myModule", [])
 .controller('myController', ['$scope', function($scope){
-	$scope.message = "Hello Angular";
-
-	$scope.greeting = "nigga";
-	console.log($scope.greeting);
-
+	
+	var employee = {
+		name :"srini", 
+		gender :"LGBT"
+	};
+	$scope.employee = employee;
  }]);
 

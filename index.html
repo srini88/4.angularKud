@@ -8,13 +8,53 @@
 <body>
 
 <div ng-controller="myController">
-<input type="text" ng-model= "message"></input>
-<!-- 
-already message is defined in the js file...so you would see that string by default -->
 
-<br/>
+<table>
+	
+<tr>
 
-{{message}}   <!-- //godamn two way data binding .... -->
+<td> FIRST NAME</td>
+<td>
+	<input type="text" ng-model = "employee.name"></input>
+</td>
+
+</tr>
+
+<tr>
+	
+	<td>
+	<input type="text" ng-model = "employee.gender"></input>
+</td>
+
+
+
+</tr>
+
+
+
+</table>
+<table>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    {{ employee.name }}
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+                    Gender
+                </td>
+                <td>
+                    {{ employee.gender }}
+                </td>
+            </tr>
+        </table>
+
+
+
 
 </div>
 </body>
