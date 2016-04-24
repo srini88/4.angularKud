@@ -12,13 +12,16 @@
 <!-- {{employees}}  //prints everything -->
 
  
-<ul ng-repeat="(key, value) in countries">
+<ul>
 		
-		<li>	{{key}}	</li>
-		<li>	{{value}}	</li>
-		<li>	{{value.name}}	</li>
-		<li>	{{value.cities}}	</li>
+		<li ng-repeat="country in countries">	{{country.name}}	
+			<ul>
 
+				<li ng-repeat = "city in country.cities">   <!-- remmeber this exp -->
+					{{city.name}}
+				</li>
+			</ul>
+		</li>
 </ul>
 
 
