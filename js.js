@@ -11,11 +11,27 @@ var myApp = angular.module("myModule", [])
                 { name: "Todd", gender: "Male", salary: 60000, city: "London" },
             ];
 $scope.employees = employees;
+//this item passed from the ng-repeat stuff per employee
+$scope.search = function(item){
+
+    ///console.log(item); item will be passed inherently....
+    // <tr ng-repeat="employee in employees | filter:search">
+ 
+    if ($scope.searchText === undefined){
+        return true;  ///true in the search filter...everything will be displayed..
+    }
+
+    else {
+                    if (item.city.toLowerCase()
+                                 .indexOf($scope.searchText.toLowerCase()) != -1 ||  //found
+                        item.name.toLowerCase()
+                                 .indexOf($scope.searchText.toLowerCase()) != -1) {
+                        return true;
+                    }
+                }
+                /// if you enter number or some shit like that...it wont search ..only searching through name and city
+    return false;
+}
+
 
  }]);
-// When the "exact match" checkbox is checked, an exact match search is performed. 
-// exact match is a boolean property, if checked it is true, else false
-// <input type="checkbox" ng-model="exactMatch" /> Exact Match
-//         <br /><br />
-
-//          <tr ng-repeat="employee in employees | filter: searchText : exactMatch">
