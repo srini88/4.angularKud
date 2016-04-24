@@ -10,13 +10,18 @@
 
 <div ng-controller="myController">
 
+<!-- //remember you got to use ng-model ...to control the element -->
+<input type="checkbox" ng-model="hideSalary" />Hide Salary
+<br/>
+HideSalary value :
+{{hideSalary}}
 <table>
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>NAME</th>
                     <th>Gender</th>
-                    <th>Salary</th>
+                    <th ng-hide="hideSalary">Salary</th>
                     <th>City</th>
                 </tr>
             </thead>
@@ -25,7 +30,7 @@
                     <td> {{ employee.name }} </td>
                     <td> {{ employee.name | toUpper }} </td>
                     <td> {{ employee.gender | gend}} </td> 
-                    <td> {{ employee.salary  }} </td>
+                    <td ng-show="!hideSalary"> {{ employee.salary  }} </td>
                     <td> {{ employee.city  }} </td>
                 </tr>
             </tbody>

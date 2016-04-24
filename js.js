@@ -2,6 +2,7 @@
 
 var myApp = angular.module("myModule", [])
 
+
 .controller('myController', ['$scope', function($scope){
 	
  var employees = [
@@ -12,14 +13,9 @@ var myApp = angular.module("myModule", [])
                 { name: "Todd", gender: 3, salary: 60000, city: "London" },
             ];
 $scope.employees = employees;
-
-
  }]);
 
-// In this video we will discuss how to create a custom filter in AngularJS. 
 
+// ng-hide and ng-show directives are used to control the visibility of the HTML elements
 
-
-// Custom filter in AngularJS
-// 1. Is a function that returns a function
-// 2. Use the filter function to create a custom filter 
+// Notice ng-model directive on the checkbox is set to hideSalary. hideSalary variable is then used as the value for ng-hide directive on the th and td elements that displays Salary. When the page is first loaded, hideSalary variable will be undefined which evaluates to false, as a result Salary column will be visible. When the checkbox is checked, hideSalary variable will be attached to the $scope object and true value is stored in it. This value is then used by the ng-hide directive to hide the salary td and it's th element. When the checkbox is unchecked, false value is stored in the hideSalary variable, which is then used by the ng-hide directive to display the Salary column. 
