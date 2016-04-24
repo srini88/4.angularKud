@@ -9,14 +9,6 @@
 
 <div ng-controller="myController">
 
-
-
-<br/>
-<br/>
-Search: 
-<input type="text" ng-model="searchText" placeholder="search name and city here"/>
-<br/>
-
 <table>
             <thead>
                 <tr>
@@ -29,7 +21,7 @@ Search:
             <tbody>
                 <tr ng-repeat="employee in employees | filter:search">
                     <td> {{ employee.name }} </td>
-                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.gender | gend}} </td> <!-- //we are creating a custom filter..like lowercase or something..thats why not using the filter keyworkd , gend is the name of our filter , we are applying it like any other built in filter-->
                     <td> {{ employee.salary  }} </td>
                     <td> {{ employee.city  }} </td>
                 </tr>
