@@ -13,6 +13,9 @@ var myApp = angular.module("myModule", [])
 $scope.employees = employees;
 
  }]);
+// When the "exact match" checkbox is checked, an exact match search is performed. 
+// exact match is a boolean property, if checked it is true, else false
+// <input type="checkbox" ng-model="exactMatch" /> Exact Match
+//         <br /><br />
 
-// hey if u remember orderBy ,in previous video ,if we want to order by 'age' we used to give orderBy:age , now here  , searchText.city is dynamically created ,so say we have $scope.searchText.city = 'London' ,thus it means searchText is now a object,not just a variable containing text,it has key:city, so when we apply filter ,it tries to find string according to which it will filter,that it find in key 'city',thus logically filter is applied to city,
-// I am just guessing ,I may be wrong.﻿
+//          <tr ng-repeat="employee in employees | filter: searchText : exactMatch">

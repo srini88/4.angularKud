@@ -13,9 +13,12 @@
 
 <br/>
 <br/>
-Search : 
+Search City: 
 <input type="text" ng-model="searchText.city" placeholder="search here"/>
+Search Name: 
+<input type="text" ng-model="searchText.name" placeholder="search here"/>
 <br/>
+<input type="checkbox" ng-model="exact"/>Exact Match
 <br/>
 <br/>
 
@@ -29,7 +32,7 @@ Search :
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="employee in employees | filter:searchText">
+                <tr ng-repeat="employee in employees | filter:searchText:exact">
                     <td> {{ employee.name }} </td>
                     <td> {{ employee.gender }} </td>
                     <td> {{ employee.salary  }} </td>
