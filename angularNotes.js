@@ -53,3 +53,5 @@ ng-repeat - same as foreach loop ....
 using repeat in tr and td
 
 <tr ng-repeat = "employee in employees">
+
+ng-init="parentIndex=$index"
