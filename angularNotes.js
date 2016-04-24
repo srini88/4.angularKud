@@ -147,7 +147,15 @@ Here is what we want to do
 3. An icon should be displayed next to the column showing the sort column and direction 
 
 
+Search box
 
+As we type in the search textbox, all the columns in the table must be searched and only the matching rows should be displayed.  
+
+linking input type with the filter.....remember you have to use the filter keyword
+<tr ng-repeat="employee in employees | filter:searchText">
+
+Search : <input type="text" placeholder="Search employees"
+                        ng-model="searchText" />
 
 
 
