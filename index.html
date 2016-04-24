@@ -8,36 +8,14 @@
 </head>
 <body>
 
-<div ng-controller="myController">
 
-<!-- //remember you got to use ng-model ...to control the element -->
-<input type="checkbox" ng-model="hideSalary" />Hide Salary
-<br/>
-HideSalary value :
-{{hideSalary}}
-<table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>NAME</th>
-                    <th>Gender</th>
-                    <th>Salary</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="employee in employees | filter:search">
-                    <td> {{ employee.name }} </td>
-                    <td> {{ employee.name | toUpper }} </td>
-                    <td> {{ employee.gender | gend}} </td> 
-                   <!--  <td> {{ employee.salary | cross }} </td> -->
-                   <td> {{hideSalary ? (employee.salary | cross): employee.salary}} </td> 
+Loading from employees.html file
 
+<div ng-controller="myController">  <!-- //controller is important...otherwise employees.html wont have any context..does not know from which controller it should bring in the data. -->
 
-                    <td> {{ employee.city  }} </td>
-                </tr>
-            </tbody>
-        </table>
+<div ng-include="'employees.html'" scope="" onload=""></div>
+
+</div>
 </div>
 </body>
 </html>

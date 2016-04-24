@@ -1,0 +1,26 @@
+
+
+
+<table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>NAME</th>
+                    <th>Gender</th>
+                    <th>Salary</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            
+        
+<tbody>
+                <tr ng-repeat="employee in employees | filter:search">
+                    <td> {{ employee.name }} </td>
+                    <td> {{ employee.name | toUpper }} </td>
+                    <td> {{ employee.gender | gend}} </td> 
+                    <td> {{ employee.salary}} </td>                   
+                    <td> {{ employee.city  }} </td>
+                </tr>
+            </tbody>
+
+            </table>
