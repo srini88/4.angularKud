@@ -22,3 +22,8 @@ ng-app  --- ng prefix stands for angular....ng-app is starting point of angular 
 {{}} called binding expression
 
 
+A module is a container for different parts of your app...like controllers, services directives and filters...
+
+you can think of a module as a Main() method in other types of applications..
+
+
