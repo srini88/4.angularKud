@@ -9,31 +9,26 @@
 
 <div ng-controller="myController">
 
-
-<ul ng-repeat = "technology in technologies" ng-init = "stub = technology">
-	<li>{{technology.name}}</li>
-<input type="button" name="likes" value="{{technology.likes}}" ng-click="incrementLikes(technology)">
-<input type="button" name="dislikes" value="{{technology.dislikes}}" ng-click="incrementDislikes(technology)">
-
-<!-- simply using a stub by means of ng-init -->
-
-<!-- The ng-init directive defines initial values for an AngularJS application.
-
-Normally, you will not use ng-init. You will use a controller or module instead. -->
-
-
-<input type="button" name="dislikes" value="{{technology.dislikes}}" ng-click="incrementDislikes(stub)">
-
-</ul>
-
-
-
-
-
-
-<br/>
-
-
+<table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Salary (number filter)</th>
+                    <th>Salary (currency filter)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | limitTo:rowCount+2">
+                    <td> {{ employee.name | uppercase }} </td>
+                    <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} </td>
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary | number:1}} </td>  
+                    <td> {{ employee.salary | currency : "$" : 2 }} </td>
+                </tr>
+            </tbody>
+        </table>
 
 
 </div>

@@ -55,3 +55,50 @@ using repeat in tr and td
 <tr ng-repeat = "employee in employees">
 
 ng-init="parentIndex=$index"
+
+Filters in angular can do 3 different things
+1. Format data
+2. Sort data
+3. Filter data 
+
+Filters can be used with a binding expression or a directive
+
+To apply a filter use pipe (|) character
+
+Syntax : {{ expression | filterName:parameter }}
+
+
+Angular filters for formatting data 
+Filter	Description
+lowercase	Formats all characters to lowercase
+uppercase	Formats all characters to uppercase
+number	Formats a number as text. Includes comma as thousands separator and the number of decimal places can be specified
+currency	Formats a number as a currency. $ is default. Custom currency and decimal places can be specified
+date	Formats date to a string based on the requested format
+
+Angular Date formats 
+Format	Result
+yyyy	4 digit year. Exampe 1998
+yy	2 digit year. Example 1998 => 98
+MMMM	January - December
+MMM	Jan - Dec
+MM	01 - 12
+M	1 - 12 (No leading ZEROS)
+dd	01 - 31
+d	1 - 31 (No leading ZEROS)
+
+
+
+limitTo filter : Can be used to limit the number of rows or characters in a string.
+
+Syntax : {{ expression | limitTo : limit : begin}}
+
+dateOfBirth: new Date("November 23, 1980")
+
+employee in employees | limitTo: rowCount
+
+                    <td> {{ employee.name | uppercase }} </td>
+                    <td> {{ employee.dateOfBirth | date:"dd/MM/yyyy" }} 
+                    <td> {{ employee.gender }} </td>
+                    <td> {{ employee.salary | number:1}} </td>   one decimal
+                    <td> {{ employee.salary | currency : "£" : 2 }} two decimal 
