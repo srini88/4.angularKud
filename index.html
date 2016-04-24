@@ -11,31 +11,17 @@
 
 <!-- {{employees}}  //prints everything -->
 
- <table>
-            <thead>
-                <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Gender</th>
-                    <th>Salary</th>
-                </tr>
-            </thead>
-            <tbody>
-                
+ 
+<ul ng-repeat="(key, value) in countries">
+		
+		<li>	{{key}}	</li>
+		<li>	{{value}}	</li>
+		<li>	{{value.name}}	</li>
+		<li>	{{value.cities}}	</li>
 
-            <tr ng-repeat = "employee in employees">
-            <!-- //will print all trhoguh loop-->
-            	
-            	<th> {{employee.firstName}}</th>
-            	<th> {{employee.lastName}}</th>
-            	<th> {{employee.gender}}</th>
-            	<th> {{employee.salary}}</th>
-
-            </tr>
+</ul>
 
 
-            </tbody>
-        </table>
 
 </div>
 </body>
