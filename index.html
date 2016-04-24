@@ -7,23 +7,14 @@
 </head>
 <body>
 
-<div ng-controller="myController">
+<div ng-controller="myController" ng-init="Srini = {name : 'vas',age:27}">
 
-<!-- {{employees}}  //prints everything -->
+{{Srini}}
 
- 
-<ul>
-		<!-- //using ng-init parent index we get the same shit -->
-		<li ng-repeat="country in countries" ng-init="parentIndex=$index">	{{country.name}} - Index: {{$index}}	
-			<ul>
-
-				<li ng-repeat = "city in country.cities">   
-					{{city.name +"  , "+ " Index : " +  $index + " , ParentIndex: " + parentIndex }}
-				</li>
-			</ul>
-		</li>
-</ul>
-
+<br/>
+{{Srini.name}}
+<br/>
+{{Srini.age}}
 
 
 </div>
