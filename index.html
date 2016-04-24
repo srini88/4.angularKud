@@ -14,11 +14,11 @@
  
 <ul>
 		
-		<li ng-repeat="country in countries">	{{country.name}}	
+		<li ng-repeat="country in countries">	{{country.name}} - Index: {{$index}}	
 			<ul>
 
-				<li ng-repeat = "city in country.cities">   <!-- remmeber this exp -->
-					{{city.name}}
+				<li ng-repeat = "city in country.cities">   
+					{{city.name +"  , "+ " Index : " +  $index + " , ParentIndex: " + $parent.$index }}
 				</li>
 			</ul>
 		</li>
