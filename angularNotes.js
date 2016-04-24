@@ -40,3 +40,9 @@ if you want more readable error messages, use the uncompressed angular script in
 
 
 
+2way data binding ---- very imp -- use ng-model 
+binding expression updates the view when the model changes...{{message}}
+
+if you want reverse shit -- use ng-model - by means of a text box...
+	
+

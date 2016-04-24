@@ -8,23 +8,14 @@
 <body>
 
 <div ng-controller="myController">
-
-<!-- //hard coded src attribute....instead use binding expression in angular -->
-	<!-- <img src="img.png" style="height: 300px; width: 400px"> -->
-
-Name : {{country.name}}
-
-
-<img ng-src="{{country.flag}}" alt="flag of USA" title="USA Flag">
-
-
-<!-- //since I;'m using src instead of ng-Src I would see the below message in console'
-http://localhost/rejuvenate/4.angularKud/%7B%7Bcountry.flag%7D%7D 404 (Not Found) -->
-
-
-
+<input type="text" ng-model= "message"></input>
+<!-- 
+already message is defined in the js file...so you would see that string by default -->
 
 <br/>
+
+{{message}}   <!-- //godamn two way data binding .... -->
+
 </div>
 </body>
 </html>

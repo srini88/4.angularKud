@@ -1,18 +1,11 @@
 
 
 var myApp = angular.module("myModule", [])
-
 .controller('myController', ['$scope', function($scope){
-		
+	$scope.message = "Hello Angular";
 
-	var country = {
-		name : "AMURICA",
-		capital : "WICHITA, KS",
-		flag : "img.png"
-	};
-	$scope.country  = country;
-
-	
+	$scope.greeting = "nigga";
+	console.log($scope.greeting);
 
  }]);
 
