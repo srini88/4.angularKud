@@ -158,8 +158,27 @@ Search : <input type="text" placeholder="Search employees"
                         ng-model="searchText" />
 
 
+custom filters 
 
 
+
+ For me, there are four types of filters. Yes, four, but there of course can be other variants. Let’s rattle through them:
+
+Filter 1: Static (single) use filter
+
+
+The returned function gets invoked each time Angular calls the filter, which means two-way binding for our filters. The user makes a change, the filter runs again and updates as necessary. The name of our filter is how we can reference it inside Angular bindings.
+
+// filter method, creating `makeUppercase` a globally
+// available filter in our `app` module
+app.filter('makeUppercase', function () {
+  // function that's invoked each time Angular runs $digest()
+  // pass in `item` which is the single Object we'll manipulate
+  return function (item) {
+    // return the current `item`, but call `toUpperCase()` on it
+    return item.toUpperCase();
+  };
+});
 
 
 
