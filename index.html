@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<title>Rocking angularJS</title>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+
+sum of 2+2 : {{2+2}}
+
+{{1 >2}}  <!-- evaluates to false  -->
+{{1 ==2}}  <!-- evaluates to false  -->
+
+
+{{ {name:'David', age:'30'}.name}}   <!-- //prints david -->
+{{ ['David','30'][1]}}   <!-- prints 30 -->
+{{ {name:'David', age:'30'}['name']}}   <!-- David -->
+{{ {name:'David', age:'30'}['age']}}   <!-- age -->
+</body>
+</html>
+
+
+
+<!-- seems like in js there is no associative array....you got to make it as an object.....with or without  quotations on the key elements... -->
+<!-- An associative array is simply a set of key value pairs. The value is stored in association with it key and if you provide the key the array will return the value.
+For example:
+array={key1: 'value1',key2:'value2'};
+creates an object called array with two keys and two values which in this case happen to be two constant strings.
+Notice that the value stored can be any JavaScript object and in this example it is probably better to think of storing two string objects rather two string literals. 
+The key can be either an identifier, a string or a number but more about the difference in the key type as we progress.
+You can retrieve a value via it key using array notation:
+alert(array['key2']); -->
