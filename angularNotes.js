@@ -194,6 +194,15 @@ http service...is uised to make HTTP request to remote server
 
 http service is a function that has a single input parameter ie a configuration object...
 
+http service returns a promise object...the fns are executed asynchrounoslly...data may not be avalianl;e immediately...
+
+
+got to use the then () method....it is chained.......in the then methodd, two params --- successCB and failureCB...
+
+
+another built in angular service......$logService.....
+
+$log.info(response);
 
 
 
