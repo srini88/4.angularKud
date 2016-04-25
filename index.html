@@ -11,10 +11,15 @@
 
 Loading from employees.html file
 
-<div ng-controller="myController">  
+<div ng-controller="myController"> 
 
-{{employeesFile}}   <!-- //prints employees.html -->
-<div ng-include="employeesFile" scope="" onload=""></div>
+<select ng-model="employeesView">
+    <option value="employees.html">Table</option>
+    <option value="ul.html">UL</option>
+</select> 
+
+{{employeesView}}   <!-- //prints the selected option-->
+<div ng-include="employeesView" scope="" onload=""></div>
 
 </div>
 </div>

@@ -14,8 +14,7 @@ var myApp = angular.module("myModule", [])
             ];
 $scope.employees = employees;
 
-
-$scope.employeesFile = 'employees.html';
+$scope.employeesView = "employees.html";  ///by default table willbe shown
 
  }]);
 
