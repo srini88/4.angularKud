@@ -190,6 +190,11 @@ app.filter('makeUppercase', function () {
 
 
 
+http service...is uised to make HTTP request to remote server
+
+http service is a function that has a single input parameter ie a configuration object...
+
+
 
 
 
