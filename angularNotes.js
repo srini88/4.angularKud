@@ -241,3 +241,35 @@ nulls
 Key values must be quoted
 Strings must be quoted with " and not '
 You have a more limited range of values (e.g. no functions allowed)
+
+
+what is a service in AngularJS
+
+what is a service in web development...
+
+
+A math object may provide  service to add number...
+
+a service is an object that provides some sort of service that can be reused...
+
+angular JS has a lot of built in service.... http and $log....
+
+in short a service is just an object...that provides some sort of service that can be reused...
+
+the primary responsibity of the controller is to build the model for the view...the controller should not do ---calculate age from DOB ----
+
+
+we should follow single responsibility prinicipel...put that logic in a service......
+
+if the logic within the controller is too large or too complex.....services can inturn be used by controllers directives and filters...
+
+services encapsulate resulable logic...that does not belong anywhere else...directives , filters, views, models and controllers...
+
+
+main thing for a service is reusablitiy...anytime you make ajax call, use http service by simply injhecting into the object....
+
+application is easy to maintain... Dependency injection....services can be simply be injected into controllers or other services that need them....
+
+
+Since services are injected into controllers or other services...it is easy to test them...you can pass mock implementation 
+

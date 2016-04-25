@@ -17,36 +17,22 @@
 
 <div ng-controller="myController"> 
 
-<!-- error coming in output itself for this webservice.. -->
-
-<!-- {"Response":"False","Error":"Series or season not found!"}  -->
-
-
-
-<br/>
-<br/>
-<!-- {{output.Episodes}} -->
-
  <table>
-            <thead>
-                <tr>
-                    <th>Episode Title</th>
-                    <th>Released</th>
-                    <th>EpisodeID</th>
-                    <th>imdbRating</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="episode in output.Episodes">
-                    <td>{{episode.Title}}</td>
-                    <td>{{episode.Released}}</td>
-                    <td>{{episode.Episode}}</td>
-                    <td>{{episode.imdbRating}}</td>
-
-                </tr>
-            </tbody>
-        </table>
-
+            <tr>
+                <td>Your String</td>
+                <td><input type="text" ng-model = "input"/> </td>
+            </tr>
+            <tr>
+                <td>Result</td>
+                <td><input type="text" ng-model = "output"/></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>  <!-- pass the input on click -->
+                    <input type="button" ng-click = "transformString(input)"value="Process String" />
+                </td>
+            </tr>
+ </table>
 
 
 </div>
