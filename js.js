@@ -3,30 +3,24 @@
 var myApp = angular.module("myModule", [])
 
 //using http service... we just injecting $http service...
-.controller('myController', ['$http','$scope', '$log', function($http,$scope, $log){ 
+.controller('myController', ['$scope','stringService' ,
 
-	//var output = "";
-	$scope.transformString = function(input){
-		if (!input)  //check for truthiness
-			return input;  //still returning here...
+	function($scope, stringService){ 
 
-		var output = "";
+		$scope.transformString = function(input){
 
-		for (var i = 0; i < input.length ;  i++){
-
-			if (i >0 && input[i] == input[i].toUpperCase()){ ///skipping the first letter
-				output +=" ";
-			}
-			
-			output += input[i];
-			
+			console.log(input);
+			///still attaching to scope ka output
+			$scope.output = stringService.processString(input);
 		}
-		$scope.output = output;
-	}
 }]);
 
 
+///problem with this shit
 
+/////all the logic is within the controller function...
+// 1) controller code is complex.....and large.
+// 2) if we want to reuse the logic in any other controller , we got to duplicate this shit.....this is perfect example for using a service...encapsulate all this logic into a service and inject that service into any controller that needs it...
 
 
 
