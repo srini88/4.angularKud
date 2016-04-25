@@ -204,6 +204,40 @@ another built in angular service......$logService.....
 
 $log.info(response);
 
+the config object...we sending to the http get is the JS object.......it is a JS object....it is automatically converted to a JSON object....
+
+JS object vs JSOn
+
+The only time you need to enclose a key in quotes when using Object Literal notation is where the key contains a special character (if, :, - etc). It is worth noting that a key in JSON must be enclosed in double quotes.
 
 
+The reason behind JSON/ XML and YAML is to enable data to be transferred between programming languages in a format both participating languages can understand; you can't give PHP or C++ your JavaScript object directly; because each language represents an object differently under-the-hood. However, because we've stringified the object into JSON notation; i.e. a standardised way to represent data, we can transmit the JSON representation of the object to another langauge (C++, PHP), they can recreate the JavaScript object we had into their own object based on the JSON representation of the object.
 
+It is important to note that JSON cannot represent functions or dates. If you attempt to stringify an object with a function member, the function will be omitted from the JSON representation. A date will be converted to a string;
+JSON.stringify({
+    foo: new Date(),
+    blah: function () { 
+        alert('hello');
+    }
+}); // returns the string "{"foo":"2011-11-28T10:21:33.939Z"}"
+
+
+The key difference between JSON and Javascript object is "JSON string is a data interchange format" and Javascript object is a data type in Javascript 
+
+Note that JSON is limited in that it cannot store functions - the only values it can contain are:
+
+objects (literals)
+arrays
+numbers
+booleans
+strings
+nulls
+
+ var obj = {foo: 42}; // creates a JavaScript object
+ var json = '{"foo": 452}'; // creates a string containing JSON
+
+ JSON has a much more limited syntax including:
+
+Key values must be quoted
+Strings must be quoted with " and not '
+You have a more limited range of values (e.g. no functions allowed)

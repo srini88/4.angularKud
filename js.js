@@ -9,7 +9,7 @@ var myApp = angular.module("myModule", [])
 	///instead of http.get you got to use http({config object})
 	$http({
 		method : 'GET',
-		url    :'http://www.omdbapi.com/?t=Gae%20of%20Thrones&Season=1'
+		url    :'http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1'
 
 		})
 
