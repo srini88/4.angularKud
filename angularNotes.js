@@ -181,7 +181,12 @@ app.filter('makeUppercase', function () {
 });
 
 
+//http service....
 
+// $http.get('http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1')
+// 		.then(function(response){
+// 			$scope.output = response.data;
+// 		});
 
 
 

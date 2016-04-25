@@ -4,24 +4,57 @@
 	<title>Rocking angularJS</title>
 	<script type="text/javascript" src="angular.js"></script>
 	<script type="text/javascript" src="js.js"></script>
-    <script type="text/javascript" src="filters.js"></script>
+    <!-- <script type="text/javascript" src="filters.js"></script> -->
 </head>
 <body>
 
 
-Loading from employees.html file
+<!-- im using this endpoint give season and you get array of results -->
+<!-- http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 -->
+
+
+
 
 <div ng-controller="myController"> 
 
-<select ng-model="employeesView">
-    <option value="employees.html">Table</option>
-    <option value="ul.html">UL</option>
-</select> 
 
-{{employeesView}}   <!-- //prints the selected option-->
-<div ng-include="employeesView" scope="" onload=""></div>
+<!-- {{output.Episodes}} -->
 
-</div>
+ <table>
+            <thead>
+                <tr>
+                    <th>Episode Title</th>
+                    <th>Released</th>
+                    <th>EpisodeID</th>
+                    <th>imdbRating</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="episode in output.Episodes">
+                    <td>{{episode.Title}}</td>
+                    <td>{{episode.Released}}</td>
+                    <td>{{episode.Episode}}</td>
+                    <td>{{episode.imdbRating}}</td>
+
+                </tr>
+            </tbody>
+        </table>
+
+<!-- output
+Episode Title	Released	EpisodeID	imdbRating
+Winter Is Coming	2011-04-17	1	8.9
+The Kingsroad	2011-04-24	2	8.7
+Lord Snow	2011-05-01	3	8.6
+Cripples, Bastards, and Broken Things	2011-05-08	4	8.7
+The Wolf and the Lion	2011-05-15	5	9.0
+A Golden Crown	2011-05-22	6	9.1
+You Win or You Die	2011-05-29	7	9.2
+The Pointy End	2011-06-05	8	8.9
+Baelor	2011-06-12	9	9.5
+Fire and Blood	2011-06-19	10	9.4 -->
+
+
+
 </div>
 </body>
 </html>
