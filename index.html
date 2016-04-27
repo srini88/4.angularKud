@@ -1,39 +1,27 @@
 <!DOCTYPE html>
 <html ng-app = "myModule">
 <head>
-	<title>Rocking angularJS</title>
+	<title>Rocking angularJS - upper to lowercase, viceversa</title>
 	<script type="text/javascript" src="angular.js"></script>
 	<script type="text/javascript" src="js.js"></script>
-	<script type="text/javascript" src="stringService.js"></script>
-    <!-- <script type="text/javascript" src="filters.js"></script> -->
+	<script type="text/javascript" src="uppertolower.js"></script>
+
 </head>
 <body>
 
+<div ng-controller="myController">
+	
+<input type="text" ng-model = "input"/>
 
-<!-- im using this endpoint give season and you get array of results -->
-<!-- http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1 -->
+<input type="text" ng-model = "output"/>
+
+<!-- got to pass in the input -->
+<button ng-click="processText(input)">Process</button>
+
+</div>
 
 
 
-
-<div ng-controller="myController"> 
-
- <table>
-            <tr>
-                <td>Your String</td>
-                <td><input type="text" ng-model = "input"/> </td>
-            </tr>
-            <tr>
-                <td>Result</td>
-                <td><input type="text" ng-model = "output"/></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>  <!-- pass the input on click -->
-                    <input type="button" ng-click = "transformString(input)"value="Process String" />
-                </td>
-            </tr>
- </table>
 
 
 </div>
