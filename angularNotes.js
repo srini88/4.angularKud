@@ -316,3 +316,15 @@ For example, if the user has requested http://localhost:51983/home, then home.ht
             <ng-view></ng-view>
 
             ng-veiw is where the partial template is going to be injected...
+
+ ///ng-route itself is a godammn depenedycy..as we included another file..
+var myApp = angular.module("myModule", ['ngRoute'])
+
+myApp
+.config(function($routeProvider){
+
+	$routeProvider
+	.when("/home", {  //if the user is on /home...use this view and ctlrs
+		templateUrl : "Templates/home.html",
+		controller   : "homeController"
+	})
