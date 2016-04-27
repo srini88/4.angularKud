@@ -288,3 +288,31 @@ $anchorscroll service is used to jump to a specified element on the page
 $location service hash method appends hash fragments to the URL
 $anchorscroll() method reads the hash fragment in the URL and jumps to that element on the page
 yOffset property specifies the vertical scroll-offset
+
+-------routiong ...23
+
+In general, as the application becomes complex you will have more than one view in the application. Let's say you are building a single page application for a training institute and you have the following views
+ - Home
+ - Courses
+ - Students 
+
+We can take advantage of the Angular routing feature, to have a single layout page, and then inject and swap out different views depending on the URL the end user has requested. 
+
+
+views will be injected into layout view depending on the URL requested...
+
+index.html is the layout view
+home.html, courses.html & students.html will be injected into the layout view(index.html) depending on the URL the end user has requested 
+
+For example, if the user has requested http://localhost:51983/home, then home.html will be injected into the layout view (index.html). Similarly if the user has requested http://localhost:51983/courses, then courses.html will be injected into the layout view (index.html). 
+
+
+        <td class="leftMenu">
+            <a href="#/home">Home</a>
+
+            # is to simply tell the browser so we dont want to navigate away from index.html...instead partial templates will be injected into a location in index.html
+
+                    <td class="mainContent">
+            <ng-view></ng-view>
+
+            ng-veiw is where the partial template is going to be injected...
