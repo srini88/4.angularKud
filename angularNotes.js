@@ -351,3 +351,12 @@ http://errors.angularjs.org/1.5.5/$location/nobase
 
 	Step 4 : Set the base href to the location of your single page application. In the head section of index.html include the following line.
 <base href="/" />
+
+
+----configure a default route in angular...
+
+if we are at the root of the site...none of the partial templates are injected at our site..
+	http://localhost/rejuvenate/4.angularKud/  oalso to some other page..which is not configured in our route..
+it will be blank  so you got to use otherWise in routeProvider..
+
+so we want home.html (the default route) to be configured...

@@ -6,7 +6,7 @@
 ///routeProvider has got .when () function
 var myApp = angular.module("myModule", ['ngRoute'])
 //we are injecting routeProivder, also inject..locationProvider
-.config(function($routeProvider, $locationProvider){
+.config(function($routeProvider){
 
 	$routeProvider
 	.when("/home", {  //if the user is on /home...use this view and ctlrs
@@ -21,17 +21,12 @@ var myApp = angular.module("myModule", ['ngRoute'])
 		templateUrl : "Templates/students.html",
 		controller : "studentsController"
 	})
+	.otherwise({   //no first paramenter
+		redirectTo : "/home"   //automatically we go to /home..
+		//xyz -- again goes to /home..
+	})
 
-	$locationProvider.html5Mode(true);  //imp - 1st step
-	//2nd step remove all # in index href
- 	
-//  	$locationProvider.html5Mode({
-//   enabled: true,
-//   requireBase: false
-// });
- 	
- 	
-
+	
 }) //chain controller function
 .controller ("homeController", ['$scope', function($scope){
 	$scope.message = "Home Page";
