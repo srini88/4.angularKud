@@ -328,3 +328,26 @@ myApp
 		templateUrl : "Templates/home.html",
 		controller   : "homeController"
 	})
+
+
+	to remove #, enable html5mode routing...
+
+	Step 1 : Enable html5mode routing. To do this inject $locationProvider into config() function in script.js and call html5Mode() method passing true as the argument value. With this change the config function will now look as shown below. 
+
+
+
+	$location which we used before is different, and $locationProvider is different..
+
+	$location in HTML5 mode requires a <base> tag to be present!
+
+	$locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+});
+ without stpe 4 I;m gettin gcompilation error
+
+ angular.js:13550 Error: [$location:nobase] $location in HTML5 mode requires a <base> tag to be present!
+http://errors.angularjs.org/1.5.5/$location/nobase
+
+	Step 4 : Set the base href to the location of your single page application. In the head section of index.html include the following line.
+<base href="/" />

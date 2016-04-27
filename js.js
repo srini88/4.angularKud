@@ -5,7 +5,8 @@
 //inject $routeProvider to configyre routes
 ///routeProvider has got .when () function
 var myApp = angular.module("myModule", ['ngRoute'])
-.config(function($routeProvider){
+//we are injecting routeProivder, also inject..locationProvider
+.config(function($routeProvider, $locationProvider){
 
 	$routeProvider
 	.when("/home", {  //if the user is on /home...use this view and ctlrs
@@ -21,6 +22,15 @@ var myApp = angular.module("myModule", ['ngRoute'])
 		controller : "studentsController"
 	})
 
+	$locationProvider.html5Mode(true);  //imp - 1st step
+	//2nd step remove all # in index href
+ 	
+//  	$locationProvider.html5Mode({
+//   enabled: true,
+//   requireBase: false
+// });
+ 	
+ 	
 
 }) //chain controller function
 .controller ("homeController", ['$scope', function($scope){
