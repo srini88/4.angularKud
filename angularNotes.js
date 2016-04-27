@@ -273,3 +273,11 @@ application is easy to maintain... Dependency injection....services can be simpl
 
 Since services are injected into controllers or other services...it is easy to test them...you can pass mock implementation 
 
+
+
+///anchaor scroll service used to go to a specified content on the page...
+//$anchorscroll service is used to jump to a specified element on the page
+
+$location service hash method appends hash fragments to the URL
+
+function($scope, $location, $anchorScroll)
