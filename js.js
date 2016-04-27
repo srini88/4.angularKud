@@ -52,8 +52,8 @@ var myApp = angular.module("myModule", ['ngRoute'])
 .controller ("studentDetailsController", ['$routeParams','$scope', '$http', function($routeParams, $scope, $http){
 
 	$http({
-		url :"http://www.omdbapi.com/?",
-		params : {i:$routeParams.id},   //very very imp
+		url :"http://www.omdbapi.com/?i={{$routeParams.id}}",  //this kind of stuff wont work  evaluating to http://www.omdbapi.com/?i={{$routeParams.id}}...
+		//params : {i:$routeParams.id},   //very very imp
 		method :"get"
 	})
 	.then(function (response){
