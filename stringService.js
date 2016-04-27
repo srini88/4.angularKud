@@ -6,7 +6,9 @@
 //ususally services in angular are stateless...
 
 //injuect this ervice into controller
-myApp.factory('stringService',['', function(){
+
+//before I had empty array myApp.factory('stringService',['', function() //not compiling because of that...
+myApp.factory('stringService',function(){
 
 
 	//return JS object...
@@ -28,5 +30,5 @@ myApp.factory('stringService',['', function(){
 			return output;
 		}	
 	};
-}]);
+});
 
