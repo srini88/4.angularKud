@@ -389,3 +389,13 @@ var myApp = angular.module("myModule", ['ngRoute'])
 
 make shit in courses page...clickable and provide more info..
 
+$http({
+		url :"http://www.omdbapi.com/?",
+		params : {i:$routeParams.id},   //very very imp
+		method :"get"
+	})
+
+
+	----page refreshh issue....
+
+	you got to base href to the top of the scripts...not seeing now because we dont have base href...
