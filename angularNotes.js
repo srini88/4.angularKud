@@ -281,3 +281,10 @@ Since services are injected into controllers or other services...it is easy to t
 $location service hash method appends hash fragments to the URL
 
 function($scope, $location, $anchorScroll)
+
+$location.hash() methods appends hash fragments to the URL...
+
+$anchorscroll service is used to jump to a specified element on the page
+$location service hash method appends hash fragments to the URL
+$anchorscroll() method reads the hash fragment in the URL and jumps to that element on the page
+yOffset property specifies the vertical scroll-offset
