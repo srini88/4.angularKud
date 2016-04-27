@@ -22,7 +22,7 @@ var myApp = angular.module("myModule", ['ngRoute'])
 		controller : "studentsController"
 	})
 	.when("/students/:id", {   //very imp
-		templateUrl :"Templates/studentDetails.html/",
+		templateUrl :"Templates/studentDetails.html",
 		controller :"studentDetailsController"
 
 	})
@@ -49,7 +49,19 @@ var myApp = angular.module("myModule", ['ngRoute'])
 		//console.log(response.data);
 	})
 }])
+.controller ("studentDetailsController", ['$routeParams','$scope', '$http', function($routeParams, $scope, $http){
 
+	$http({
+		url :"http://www.omdbapi.com/?",
+		params : {i:$routeParams.id},   //very very imp
+		method :"get"
+	})
+	.then(function (response){
+		$scope.student = response.data;  //this student is gonna contain that specific student details  (episode details)
+		console.log(response.data);
+	})
+
+}])
 
 
 // http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=2
