@@ -360,3 +360,32 @@ if we are at the root of the site...none of the partial templates are injected a
 it will be blank  so you got to use otherWise in routeProvider..
 
 so we want home.html (the default route) to be configured...
+
+///by heart
+var myApp = angular.module("myModule", ['ngRoute'])
+//we are injecting routeProivder, also inject..locationProvider
+.config(function($routeProvider){
+
+	$routeProvider
+	.when("/home", {  //if the user is on /home...use this view and ctlrs
+		templateUrl : "Templates/home.html",
+		controller   : "homeController"
+	})
+	.when("/courses", {
+		templateUrl : "Templates/courses.html",
+		controller : "coursesController"
+	})
+	.when("/students", {
+		templateUrl : "Templates/students.html",
+		controller : "studentsController"
+	})
+	.otherwise({   //no first paramenter
+		redirectTo : "/home"   //automatically we go to /home..
+		//xyz -- again goes to /home..
+	})
+
+
+----route params./...
+
+make shit in courses page...clickable and provide more info..
+

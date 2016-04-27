@@ -21,6 +21,11 @@ var myApp = angular.module("myModule", ['ngRoute'])
 		templateUrl : "Templates/students.html",
 		controller : "studentsController"
 	})
+	.when("/students/:id", {   //very imp
+		templateUrl :"Templates/studentDetails.html/",
+		controller :"studentDetailsController"
+
+	})
 	.otherwise({   //no first paramenter
 		redirectTo : "/home"   //automatically we go to /home..
 		//xyz -- again goes to /home..
@@ -46,6 +51,10 @@ var myApp = angular.module("myModule", ['ngRoute'])
 }])
 
 
+
+// http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=2
+// http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1
+// http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=3
 	
 
 
