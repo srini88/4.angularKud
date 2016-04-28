@@ -481,3 +481,56 @@ $routeProvider   ///remember got to use template Property, instead of template U
         controller: "homeController",
         controllerAs: "homeCtrl"
     })
+
+
+    ----------route reload service....
+
+     angular route service reload() method. This method is useful when you want to reload just the current route instead of the entire app. Let us understand this with an example.
+
+     added a new entry in the DB table..for the new record to show up....one way is to reload the page....
+
+     downside...makes it reload the entire application....
+
+     . Notice that when you click on the same students link, nothing happens. This means if we insert a new record in the database table and issue a request to the same route, you may not see the new records. 
+
+One of the ways to see the new data is by clicking on the browser refresh button. The downside of this is that the entire app is reloaded. This means all the resources required to run your app will be reloaded. You can see all the resource requests made on the network tab in the browser developer tools. 
+
+
+you see 8 requests issued...and 2.5 kbytes transferred...
+all the resources required to run this app are once again reloaded from the server...
+
+just the godammn controller on the page..you got to add a reload button...or something...this is done using $route.reload()
+
+Step 1 : Modify the studentsController function in script.js
+
+//I'm just modifying the controller that is responsible for this shit..
+
+.controller("studentsController", function ($http, $route) {
+    var vm = this;
+
+    vm.reloadData = function () {
+        $route.reload();
+    }
+
+
+ and in the view , you got to add the reload button...
+
+ Please note : 
+1. $route service in injected in the controller function
+2. reloadData() function is attached to the view model (vm) which will be available for the view to call. This method simply calls reload() method of the route service. 
+
+Step 2 : Modify the partial template (students.html). Please note that we have included a button which calls reloadData() method when clicked. 
+
+<h1>List of Students</h1>
+<ul>
+    <li ng-repeat="student in studentsCtrl.students">
+        <a href="students/{{student.id}}">
+            {{student.name}}
+        </a>
+    </li>
+</ul>
+<button ng-click="studentsCtrl.reloadData()">Reload</button>
+
+There are 2 things to notice here
+1. The newly added record will be shown on the view
+2. Only the resources required to reload the current route are requested from the server 
