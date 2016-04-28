@@ -439,3 +439,45 @@ controller as makes our code more readable when working with nested scopes..
 3. If you want to use $scope it has to be injected into controller function, where as with CONTROLLER AS syntax there is no need for such injection, unless you need it for something else.
 
 even if you use controllerAs, angular is still using $scope behind the scenes...
+
+
+-------caseInsensitiveMatch and inline templates...
+
+
+route
+
+ The routes that are configured using config function are case sensitive by default.
+
+
+ To make the route case-insensitive set caseInsensitiveMatch property to true as shown below.
+
+//to make a route caseInsensitve....this is just for one route..
+$routeProvider
+    .when("/home", {
+        templateUrl: "Templates/home.html",
+        controller: "homeController",
+        controllerAs: "homeCtrl",
+        caseInsensitiveMatch: true
+    })
+
+    To make all routes case-insensitive set caseInsensitiveMatch property on $routeProvider as shown below.
+
+$routeProvider.caseInsensitiveMatch = true; 
+
+Inline Templates : The view content for the route (/home), is coming from a separate html file (home.html)
+
+$routeProvider
+    .when("/home", {
+        templateUrl: "Templates/home.html",
+        controller: "homeController",
+        controllerAs: "homeCtrl",
+    })
+
+Should the view content always come from a separate html file. Not necessarily. You can also use an inline template. To use an inline template use template property as shown below.
+
+$routeProvider
+    .when("/home", {
+        template: "<h1>Inline Template in action</h1>",
+        controller: "homeController",
+        controllerAs: "homeCtrl"
+    })
