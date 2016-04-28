@@ -429,3 +429,13 @@ controller as makes our code more readable when working with nested scopes..
 		<div ng-controller="cityController">
 
 	{{name}} - {{$parent.name}} - {{$parent.$parent.name}}
+
+	---- controllerAs syntax - is new..
+
+	CONTROLLER AS syntax is new and is officially released in 1.2.0. $scope is the old technique and is available since the initial version of angular is released.
+
+2. You can use either one of thes techniques. Both have their own uses. For example, CONTROLLER AS syntax makes your code more readable when working with nested scopes. We discussed this in our previous video.
+
+3. If you want to use $scope it has to be injected into controller function, where as with CONTROLLER AS syntax there is no need for such injection, unless you need it for something else.
+
+even if you use controllerAs, angular is still using $scope behind the scenes...
