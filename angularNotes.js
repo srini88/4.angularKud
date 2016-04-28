@@ -475,7 +475,7 @@ $routeProvider
 
 Should the view content always come from a separate html file. Not necessarily. You can also use an inline template. To use an inline template use template property as shown below.
 
-$routeProvider
+$routeProvider   ///remember got to use template Property, instead of template URL.........
     .when("/home", {
         template: "<h1>Inline Template in action</h1>",
         controller: "homeController",
