@@ -11,9 +11,15 @@
 </head>
 <body> 
 
-<div ng-controller="myController">
-	{{msg}}
-
+<!-- /nested thingy worked...with scope itself-->
+<div ng-controller="countryController">
+	{{name}}  
+	<div ng-controller="stateController">
+	{{name}} 
+		<div ng-controller="cityController">
+	{{name}} 
+	</div>
+	</div>
 </div>
 
 

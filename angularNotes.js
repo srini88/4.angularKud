@@ -399,3 +399,25 @@ $http({
 	----page refreshh issue....
 
 	you got to base href to the top of the scripts...not seeing now because we dont have base href...
+
+	----controller as
+
+	<div ng-controller="myController as mainCtlr">
+	{{mainCtlr.msg}}  
+--- you will get a problem with controller as syntax..when using http with then.......
+in thhen , you will use $scope.... you cannot take out scope and add this..
+
+...within then , we are using this...this keyword points to the window object...and not to the instance of the controller...
+
+If you use this keyword in then() function as shown below, you would not get the result you expect. That's because 'this' keyword points to the window object when the control comes to then() function. 
+
+var vm = this;
+
+this.students  -----
+
+other way instead of controllerAs in one line..
+
+controller : "homeController",
+controllerAs :"homeCtlr"
+
+controller as makes our code more readable when working with nested scopes..
