@@ -421,3 +421,11 @@ controller : "homeController",
 controllerAs :"homeCtlr"
 
 controller as makes our code more readable when working with nested scopes..
+
+
+	{{name}}  
+	<div ng-controller="stateController">
+	{{name}} - {{$parent.name}}
+		<div ng-controller="cityController">
+
+	{{name}} - {{$parent.name}} - {{$parent.$parent.name}}

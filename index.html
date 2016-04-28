@@ -12,12 +12,15 @@
 <body> 
 
 <!-- /nested thingy worked...with scope itself-->
+<!-- 
+///what if there are 10 levels , hard to have $parent.$parent....like that.. -->
 <div ng-controller="countryController">
 	{{name}}  
 	<div ng-controller="stateController">
-	{{name}} 
+	{{name}} - {{$parent.name}}
 		<div ng-controller="cityController">
-	{{name}} 
+
+	{{name}} - {{$parent.name}} - {{$parent.$parent.name}}
 	</div>
 	</div>
 </div>

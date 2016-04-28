@@ -6,6 +6,13 @@
 
 
 
+//if you look at this...its confusing....where is this name coming from? bit confising...
+
+// say if you want to display like this..
+
+// India 
+// India = Maharashtra 
+// India - Maharashtra - Mumbai 
 
 
 var app = angular.module("myApp",[])
