@@ -534,3 +534,16 @@ Step 2 : Modify the partial template (students.html). Please note that we have i
 There are 2 things to notice here
 1. The newly added record will be shown on the view
 2. Only the resources required to reload the current route are requested from the server 
+
+
+------$rootscope and $scope
+The main difference is that, $rootScope is available globally (for all controllers), whereas $scope is only available to the controller that has created it and it's children. 
+
+
+Controller Code : We have 2 controllers (redColourController & greenColourController). redColourController has set redColour property on $scope and rootScopeColour on $rootScope. This means redColour property cannot be used outside the redColourController, where as rootScopeColour that is set on $rootScope can be used anywhere. greenColourController has set greenColour property on $scope. This means greenColour property cannot be used outside the greenColourController
+
+you got to inject rootScope remmeber...
+.controller("redController",function($scope, $rootScope)
+
+
+: From the output it is clear that the rootScopeColour property that is set on $rootScope is available for both the controllers (redColourController & greenColourController). Where as redColour property set on $scope is available only for redColourController and not for greenColourController. Similarly, greenColour property set $scope is available only for greenColourController and not redColourController. Hope this example has made the difference between $rootScope and $scope clear. 

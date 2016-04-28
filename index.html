@@ -11,19 +11,18 @@
 </head>
 <body> 
 
-<!-- /nested thingy worked...with scope itself-->
-<!-- 
-///what if there are 10 levels , hard to have $parent.$parent....like that.. -->
-<!-- //this code is much more readable than using $scope.. -->
-<div ng-controller="countryController as countryCtrl">
-	{{countryCtrl.name}}  
-	<div ng-controller="stateController as stateCtrl">
-	{{stateCtrl.name}} - {{countryCtrl.name}}
-		<div ng-controller="cityController as cityCtrl">
+<div ng-controller="redController">
+	{{redColor}} <!-- prints -->
+	{{greenColor}}   <!--  does not print, since redController is incharge of this div -->
+	<hr>
+	{{rootScopeColor}}   <!-- prints -->
+</div>
 
-	{{cityCtrl.name}} - {{countryCtrl.name}} - {{stateCtrl.name}}
-	</div>
-	</div>
+<div ng-controller="greenController">
+	{{redColor}} <!--does not print -->
+	{{greenColor}}   <!-- prints -->
+	<hr>
+	{{rootScopeColor}}   <!-- prints -->
 </div>
 
 
