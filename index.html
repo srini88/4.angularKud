@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app = "myApp">
+<html ng-app = "myModule">
 <head>
 	<title>Angular Routing</title>
 	<script type="text/javascript" src="angular.js"></script>
@@ -9,21 +9,34 @@
 	
 
 </head>
-<body> 
+<body>  <!-- asp.net see 147 -->
 
-<div ng-controller="redController">
-	{{redColor}} <!-- prints -->
-	{{greenColor}}   <!--  does not print, since redController is incharge of this div -->
-	<hr>
-	{{rootScopeColor}}   <!-- prints -->
-</div>
-
-<div ng-controller="greenController">
-	{{redColor}} <!--does not print -->
-	{{greenColor}}   <!-- prints -->
-	<hr>
-	{{rootScopeColor}}   <!-- prints -->
-</div>
+	<table style="font-family: Arial">
+    <tr>
+        <td colspan="2" class="header">
+            <h1>
+                Training Institute
+            </h1>
+        </td>
+    </tr>
+    <tr>
+        <td class="leftMenu">
+        <!-- //removed hash here...got to http://localhost/students//wrong appge  so need to have hash..and work on other ways to get rid of -->
+        <!-- after adding html5Mode , removed hashes -->
+            <a href="#/home">Home</a>
+            <a href="#/courses">Courses</a>
+            <a href="#/students">Students</a>
+        </td>
+        <td class="mainContent">
+            <ng-view></ng-view>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2" class="footer">
+            <b>Website Footer</b>
+        </td>
+    </tr>
+	</table>
 
 
 </body>
