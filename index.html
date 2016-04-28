@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app = "myModule">
+<html ng-app = "myApp">
 <head>
 	<title>Angular Routing</title>
 	<script type="text/javascript" src="angular.js"></script>
@@ -9,34 +9,12 @@
 	
 
 </head>
-<body>  <!-- asp.net see 147 -->
+<body> 
 
-	<table style="font-family: Arial">
-    <tr>
-        <td colspan="2" class="header">
-            <h1>
-                Training Institute
-            </h1>
-        </td>
-    </tr>
-    <tr>
-        <td class="leftMenu">
-        <!-- //removed hash here...got to http://localhost/students//wrong appge  so need to have hash..and work on other ways to get rid of -->
-        <!-- after adding html5Mode , removed hashes -->
-            <a href="#/home">Home</a>
-            <a href="#/courses">Courses</a>
-            <a href="#/students">Students</a>
-        </td>
-        <td class="mainContent">
-            <ng-view></ng-view>
-        </td>
-    </tr>
-    <tr>
-        <td colspan="2" class="footer">
-            <b>Website Footer</b>
-        </td>
-    </tr>
-	</table>
+<div ng-controller="myController">
+	{{msg}}
+
+</div>
 
 
 </body>
