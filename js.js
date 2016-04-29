@@ -43,17 +43,17 @@ var myApp = angular.module("myModule", ['ngRoute'])
 
 	////return a property callled students....has the web service connection.. using omdb webservice to get episodes..
 
-	// $routeChangeStart - when route navigation occurs this event is triggered..  event obj, next route, current route..
-
-	$scope.$on("$routeChangeStart", function(event, next, current){
-		if (!confirm("are you sure you want to go to " + next.$$route.originalPath)){   //ok will return true, cancel returns false..
-			//console.log(event);
-			console.log(current);
+	//$locationChangeStart event = this event is also triggered when the route change occurs...
+	//you get the complete URL when using locationChangeStart event..
+	///http://localhost/rejuvenate/4.angularKud/#/home
+	$scope.$on("$locationChangeStart", function(event, next, current){
+		if (!confirm("you sure you wanna go to "+ next)){
 			console.log(next);
 			event.preventDefault();
-		}
-	});
 
+		}
+
+	});
 
 	$http.get('http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1')
 	.then(function (response){
