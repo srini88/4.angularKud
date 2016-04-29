@@ -42,6 +42,17 @@ var myApp = angular.module("myModule", ['ngRoute'])
 .controller ("studentsController", ['$scope','$http', function($scope, $http){
 
 	////return a property callled students....has the web service connection.. using omdb webservice to get episodes..
+
+	// $routeChangeStart - when route navigation occurs this event is triggered..  event obj, next route, current route..
+
+	$scope.$on("$routeChangeStart", function(event, next, current){
+		if (!confirm("are you sure you wanna fuck off")){   //ok will return true, cancel returns false..
+			//console.log(event);
+			event.preventDefault();
+		}
+	});
+
+
 	$http.get('http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1')
 	.then(function (response){
 		$scope.students = response.data;

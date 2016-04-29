@@ -547,3 +547,19 @@ you got to inject rootScope remmeber...
 
 
 : From the output it is clear that the rootScopeColour property that is set on $rootScope is available for both the controllers (redColourController & greenColourController). Where as redColour property set on $scope is available only for redColourController and not for greenColourController. Similarly, greenColour property set $scope is available only for greenColourController and not redColourController. Hope this example has made the difference between $rootScope and $scope clear. 
+
+
+----------------how to cancel a route change in Angular...
+
+priompt the user: (Are you sure you want to navigate away from this page)
+
+you filled 90 % of form, and accidently clicked...some link..without confirmation..you will lose your unsaved data...
+
+you click the cancel button and retain the unsaved data...
+
+
+	$scope.$on("$routeChangeStart", function(event, next, current){
+		if (!confirm("are you sure you wanna fuck off")){   //ok will return true, cancel returns false..
+			event.preventDefault();
+		}
+	});
