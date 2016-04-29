@@ -46,8 +46,10 @@ var myApp = angular.module("myModule", ['ngRoute'])
 	// $routeChangeStart - when route navigation occurs this event is triggered..  event obj, next route, current route..
 
 	$scope.$on("$routeChangeStart", function(event, next, current){
-		if (!confirm("are you sure you wanna fuck off")){   //ok will return true, cancel returns false..
+		if (!confirm("are you sure you want to go to " + next.$$route.originalPath)){   //ok will return true, cancel returns false..
 			//console.log(event);
+			console.log(current);
+			console.log(next);
 			event.preventDefault();
 		}
 	});

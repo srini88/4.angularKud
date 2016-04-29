@@ -563,3 +563,20 @@ you click the cancel button and retain the unsaved data...
 			event.preventDefault();
 		}
 	});
+
+
+	Notice 
+1. We are injecting $scope object into the controller function
+2. With in $routeChangeStart event handler function, we are using confirm() function to display the confirmation dialog box
+3. When the confirmation dialog box is displayed, If the user clicks Cancel, event.preventDefault() is called and it cancels the route change, so the user stays on the same page
+4. On the other hand if the user clicks OK, event.preventDefault() is not called and the route is allowed to change.
+
+
+If you want to include the route that the user is trying to navigate to in the confirmation message you can do so by using next parameter of the $routeChangeStart event handler function as shown below.
+
+ next.$$route.originalPath
+
+You can also cancel route change by handling $locationChangeStart event
+
+
+ 
