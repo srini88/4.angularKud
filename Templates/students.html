@@ -1,7 +1,7 @@
 <h1> Search for movies by name </h1>
 <!-- $scope.students = response.data; -->
-
-
+<!-- 
+//this is step two with ng-model  -->
 Movie:  <input type="text"  ng-model = "movieName" />
 <button ng-click= "searchMovie()">Search by Movie</button>
 
@@ -11,8 +11,6 @@ Movie:  <input type="text"  ng-model = "movieName" />
 <ul>
 <li ng-repeat = "Search in students.Search">
 	{{Search.Title}}
-<a href ="#/students/{{episode.imdbID}}">{{episode.Title}} </a>
-
 </li>
 </ul>
 

@@ -50,6 +50,7 @@ var myApp = angular.module("myModule", ['ngRoute'])
 
 	$scope.searchMovie = function(){
 		if ($scope.movieName){  //if user entered a movieName
+			//this is initial 1, we are creating locationURL with the movie searched....
 			$location.url("/studentSearch/"+$scope.movieName);
 			console.log("movieName:  " + $scope.movieName);
 			console.log($location.url("/studentSearch/"+$scope.movieName));
@@ -70,13 +71,14 @@ var myApp = angular.module("myModule", ['ngRoute'])
 
 .controller ("studentsSearchController", ['$routeParams','$scope', '$http', function($routeParams, $scope, $http){
 
+	///step 3, user typed some shit...
 	if ($routeParams.mName){
 		console.log($routeParams.mName);   //this is also printing 
 	}
 
 	$http({
 		url : "http://www.omdbapi.com/?",
-		params : {s:$routeParams.mName},
+		params : {s:$routeParams.mName}, //we are retreiving from the URl
 		method :"get"
 	}).then(function(response){
 		$scope.movieDet = response.data;

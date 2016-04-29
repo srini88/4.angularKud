@@ -605,3 +605,12 @@ For example if we type "Ma" and click search button, on the subsequent page we w
 
 
 we are making the search button to create html link using location.url
+
+ Include a new route for searching students in script.js. To make a parameter optional, all you have to do is include a "?" at the end.
+
+.when("/studentsSearch/:name?", {
+    templateUrl: "Templates/studentsSearch.html",
+    controller: "studentsSearchController",
+    controllerAs: "studentsSearchCtrl"
+
+})
