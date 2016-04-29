@@ -1,32 +1,19 @@
+<h1> Search for movies by name </h1>
+<!-- $scope.students = response.data; -->
 
-<!-- instead of students we will get the episodes titles... -->
+
+Movie:  <input type="text"  ng-model = "movieName" />
+<button ng-click= "searchMovie()">Search by Movie</button>
 
 
-<h1> List of episodes in Game of Thrones </h1>
+<!-- {{students.Search}} -->
 
 <ul>
-<li ng-repeat = "episode in students.Episodes">
-	
+<li ng-repeat = "Search in students.Search">
+	{{Search.Title}}
+<a href ="#/students/{{episode.imdbID}}">{{episode.Title}} </a>
 
-<!-- when we click on any name, what is the route we wnwat to go to ..
-
-students/{{that specific id}} ... -->
-
-	<a href ="#/students/{{episode.imdbID}}">{{episode.Title}} </a>
-<!-- this makes the link like this
-http://localhost/rejuvenate/4.angularKud/students/tt1480055 -->
 </li>
 </ul>
 
-<!-- there is imdbID in our results, use that....and get the personalized result for it..... -->
-<!-- Title: "Valar Dohaeris",
-Released: "2013-03-31",
-Episode: "1",
-imdbRating: "8.7",
-imdbID: "tt2178782" -->
 
-<!-- however id cannot be constructored on top of what we already have,,.,
-
-the new url should be http://www.omdbapi.com/?i=tt2178782
-
- -->

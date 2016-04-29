@@ -25,6 +25,12 @@ var myApp = angular.module("myModule", ['ngRoute'])
 		controller :"studentDetailsController"
 
 	})
+	.when("/studentSearch/:mName", {
+		templateUrl :"Templates/studentsSearch.html", 
+		controller : "studentsSearchController"
+	})
+
+
 	.otherwise({   //no first paramenter
 		redirectTo : "/home"   //automatically we go to /home..
 		//xyz -- again goes to /home..
@@ -39,43 +45,44 @@ var myApp = angular.module("myModule", ['ngRoute'])
 	//return an array of courses..
 	$scope.courses = ["C#", "Angular", "JQuery", "ASP.NET"];
 }])
-.controller ("studentsController", ['$scope','$http', '$rootScope','$log',function($scope, $http, $rootScope, $log){
-
-	//why rootsocpe instead of scope...routeChangeSuccess is not printing with scope...so using global rootScope
-	$rootScope.$on("$locationChangeStart", function () {
-        $log.debug("$locationChangeStart fired");
-    });
-
-    $rootScope.$on("$routeChangeStart", function () {
-        $log.debug("$routeChangeStart fired");
-    });
-
-    $rootScope.$on("$locationChangeSuccess", function () {
-        $log.debug("$locationChangeSuccess fired");
-    });
-
-    $rootScope.$on("$routeChangeSuccess", function () {
-        $log.debug("$routeChangeSuccess fired");
-    });
+.controller ("studentsController", ['$scope','$http', '$location',function($scope, $http, $location){
 
 
-	$http.get('http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1')
+	$scope.searchMovie = function(){
+		if ($scope.movieName){  //if user entered a movieName
+			$location.url("/studentSearch/"+$scope.movieName);
+			console.log("movieName:  " + $scope.movieName);
+			console.log($location.url("/studentSearch/"+$scope.movieName));
+		}
+		else{
+			console.log("no movie name");
+			//$location.url(""); //dotn go anywhere, stay on the same page
+		}
+
+	}
+
+	$http.get('http://www.omdbapi.com/?s=dinosaur')
 	.then(function (response){
 		$scope.students = response.data;
-		//console.log(response.data);
-	})
-}])
-.controller ("studentDetailsController", ['$routeParams','$scope', '$http', function($routeParams, $scope, $http){
-
-	$http({
-		url :"http://www.omdbapi.com/?",
-		params : {i:$routeParams.id},   //very very imp
-		method :"get"
-	})
-	.then(function (response){
-		$scope.student = response.data;  //this student is gonna contain that specific student details  (episode details)
 		console.log(response.data);
 	})
+}])
+
+.controller ("studentsSearchController", ['$routeParams','$scope', '$http', function($routeParams, $scope, $http){
+
+	if ($routeParams.mName){
+		console.log($routeParams.mName);   //this is also printing 
+	}
+
+	$http({
+		url : "http://www.omdbapi.com/?",
+		params : {s:$routeParams.mName},
+		method :"get"
+	}).then(function(response){
+		$scope.movieDet = response.data;
+		console.log($scope.movieDet);
+	})
+
 
 }])
 

@@ -585,3 +585,23 @@ You can also cancel route change by handling $locationChangeStart event
 3. $locationChangeSuccess
 4. $routeChangeSuccess 
 
+Please note that we are injecting $log service into the controller function to log the events. 
+
+In our previous video, we used $$route.originalPath property to get the route that the user is navigating to. How do we know next parameter has $$route.originalPath property. Well the easiest way is to log and inspect their properties. The following code does exactly the same thing. 
+
+
+
+---------------------------------------
+In this video we will discuss angular optional URL parameters. Let us understand this with an example.
+
+we want an interface to search for a movie...
+if we dont enter anything...give some default movies...making movie name optional...
+
+add webmethod to retrieve movies by name
+http://www.omdbapi.com/?s=Batman
+
+
+For example if we type "Ma" and click search button, on the subsequent page we want to display all the student names that start with "Ma" as shown below. 
+
+
+we are making the search button to create html link using location.url
