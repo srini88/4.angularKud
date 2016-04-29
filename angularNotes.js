@@ -579,4 +579,9 @@ If you want to include the route that the user is trying to navigate to in the c
 You can also cancel route change by handling $locationChangeStart event
 
 
- 
+--------------When route navigation occurs in an Angular application, the following events are triggered
+1. $locationChangeStart
+2. $routeChangeStart
+3. $locationChangeSuccess
+4. $routeChangeSuccess 
+

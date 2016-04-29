@@ -39,21 +39,25 @@ var myApp = angular.module("myModule", ['ngRoute'])
 	//return an array of courses..
 	$scope.courses = ["C#", "Angular", "JQuery", "ASP.NET"];
 }])
-.controller ("studentsController", ['$scope','$http', function($scope, $http){
+.controller ("studentsController", ['$scope','$http', '$rootScope','$log',function($scope, $http, $rootScope, $log){
 
-	////return a property callled students....has the web service connection.. using omdb webservice to get episodes..
+	//why rootsocpe instead of scope...routeChangeSuccess is not printing with scope...so using global rootScope
+	$rootScope.$on("$locationChangeStart", function () {
+        $log.debug("$locationChangeStart fired");
+    });
 
-	//$locationChangeStart event = this event is also triggered when the route change occurs...
-	//you get the complete URL when using locationChangeStart event..
-	///http://localhost/rejuvenate/4.angularKud/#/home
-	$scope.$on("$locationChangeStart", function(event, next, current){
-		if (!confirm("you sure you wanna go to "+ next)){
-			console.log(next);
-			event.preventDefault();
+    $rootScope.$on("$routeChangeStart", function () {
+        $log.debug("$routeChangeStart fired");
+    });
 
-		}
+    $rootScope.$on("$locationChangeSuccess", function () {
+        $log.debug("$locationChangeSuccess fired");
+    });
 
-	});
+    $rootScope.$on("$routeChangeSuccess", function () {
+        $log.debug("$routeChangeSuccess fired");
+    });
+
 
 	$http.get('http://www.omdbapi.com/?t=Game%20of%20Thrones&Season=1')
 	.then(function (response){
