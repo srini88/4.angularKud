@@ -614,3 +614,68 @@ we are making the search button to create html link using location.url
     controllerAs: "studentsSearchCtrl"
 
 })
+
+-------------angularJS route resolve....
+
+When we navigate to http://localhost/students, we see the list of student names. These names are coming from a database table. Since the database, the application and the client, all are running on my local machine the data loads really fast. If they are on different machines and if there is network latency, the data may take a few seconds to load.
+
+Let us introduce artificial network latency, by including the following line in GetAllStudents() web method in StudentService.asmx
+
+System.Threading.Thread.Sleep(2000);
+
+After this change. Refresh the application. Navigate to /home and then to /students. Notice the route changes to /students immediately but the students data takes at least 2 seconds to load. So let us understand what's happening here. 
+
+only when te promise is resolved.....(after 2 seconds) , we see the data from teh REST API..
+
+
+.when("/students", {
+    templateUrl: "Templates/students.html",
+    controller: "studentsController",
+    controllerAs: "studentsCtrl",
+    resolve: {
+        studentslist: function ($http) {
+            return $http.get("StudentService.asmx/GetAllStudents")
+                    .then(function (response) {
+                        return response.data;
+                    })
+        }
+    }
+})
+
+Step 2 : Modify the studentsController as shown below. Notice we are injecting studentslist property into students controller. This is the same property we used in resolve property in Step 1. studentslist property is then assigned as the value for students property on the view model (vm) object which the view expects. Since we already have the students data, there is no need to make another http call to the student service. Hence we deleted that http call from the students controller.
+
+.controller("studentsController", function (studentslist, $route, $location) {
+    var vm = this;
+
+    vm.studentSearch = function () {
+        if (vm.name)
+            $location.url("/studentsSearch/" + vm.name)
+        else
+            $location.url("/studentsSearch")
+    }
+
+    vm.reloadData = function () {
+        $route.reload();
+    }
+
+    vm.students = studentslist;
+})
+
+
+With these 2 changes in place. Refresh the app. Navigate to /home and then to /students. Notice this time, the app does not transition to /students (new route) until the promise is resolved and the data is available. Upon the data becoming available the app transitions to the new route and the data is shown immediately.
+
+So in summary, 
+1. The resolve property contains one or more promises that must resolve successfully before transitioning to the new route.
+2. The property names used in the resolve property can then be injected into the controller. This means the controller does not have to fetch the data. 
+
+
+
+
+
+
+
+
+
+
+
+
